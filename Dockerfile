@@ -21,7 +21,7 @@ RUN groupadd -g ${gid} ${group} \
 # Install necessary tools and clean up
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
-    git openssh-client curl bash python3 python3-pip openjdk-8-jdk && \
+    git openssh-client curl bash python3 python3-pip openjdk-8-jdk vim && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
