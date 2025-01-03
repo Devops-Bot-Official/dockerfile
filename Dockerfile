@@ -14,7 +14,9 @@ ARG gid=1000
 
 RUN groupadd -g ${gid} ${group} \
     && useradd -m -u ${uid} -g ${group} -s /bin/bash ${user} \
-    && mkdir -p $DEVOPS_BOT_HOME/logs
+    && mkdir -p $DEVOPS_BOT_HOME/logs \
+    && mkdir -p /etc/devops-bot \
+    && chown -R ${user}:${group} /etc/devops-bot
 
 # Install necessary tools and clean up
 RUN apt-get update -y && \
@@ -45,4 +47,3 @@ USER ${user}
 # Set entrypoint and default command
 ENTRYPOINT ["/usr/local/bin/dob"]
 CMD ["run-ui", "--port", "4102"]
-
