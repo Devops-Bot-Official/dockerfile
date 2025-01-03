@@ -2,9 +2,9 @@ FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install required tools including openssh-client for ssh-keygen and git
+# Install required tools
 RUN apt-get update -y && \
-    apt-get install -y wget python3-pip openssh-client git && \
+    apt-get install -y wget python3-pip && \
     apt-get clean
 
 # Copy the combined installation script
