@@ -16,7 +16,8 @@ RUN groupadd -g ${gid} ${group} \
     && useradd -m -u ${uid} -g ${group} -s /bin/bash ${user} \
     && mkdir -p $DEVOPS_BOT_HOME/logs \
     && mkdir -p /etc/devops-bot \
-    && chown -R ${user}:${group} /etc/devops-bot
+    && chown -R ${user}:${group} /etc/devops-bot \
+    && chown -R ${user}:${group} /etc/hosts
 
 # Install necessary tools and clean up
 RUN apt-get update -y && \
