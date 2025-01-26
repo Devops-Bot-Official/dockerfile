@@ -23,6 +23,7 @@ RUN groupadd -g ${gid} ${group} \
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
     git openssh-client curl bash python3 python3-pip openjdk-8-jdk vim && \
+    pip install flask_socketio \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
